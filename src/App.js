@@ -8,6 +8,7 @@ import NotFound from "./components/error/NotFound";
 import ErrorBoundary from "./components/error/ErrorBoundary";
 
 function App() {
+
   return (
     <Router>
       <Header />
