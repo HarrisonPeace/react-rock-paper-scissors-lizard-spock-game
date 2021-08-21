@@ -1,0 +1,11 @@
+// Scss Document //
+
+// ============================================= //
+//                    Mixins                     //
+// ============================================= //
+
+@mixin mq($break) {
+	@media (min-width: map-get($breakpoint, $break)) {
+		@content;
+	}
+}
