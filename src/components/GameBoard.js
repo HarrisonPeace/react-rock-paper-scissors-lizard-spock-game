@@ -2,9 +2,9 @@ import React from 'react'
 
 const GameBoard = () => {
     return (
-      <main>
+      <div>
  
-      </main>
+      </div>
     );
 };
 

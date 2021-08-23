@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 //component imports
+import Layout from "./components/Layout";
 import Header from "./components/Header";
 import GameBoard from "./components/GameBoard";
 import NotFound from "./components/error/NotFound";
@@ -11,8 +12,9 @@ function App() {
 
   return (
     <Router>
+    <ErrorBoundary>
+    <Layout>
       <Header />
-      <ErrorBoundary>
         <Switch>
           <Route exact path="/">
             <GameBoard />
@@ -21,6 +23,7 @@ function App() {
             <NotFound />
           </Route>
         </Switch>
+      </Layout>
       </ErrorBoundary>
     </Router>
   );

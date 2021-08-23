@@ -3,3 +3,33 @@
 /* ============================================= */
 /*              Typography                       */
 /* ============================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap');
+
+main {
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-weight: 600;
+}
+
+#header {
+  text-transform: uppercase;
+}
+
+#game-name {
+  color: $light-text
+}
+
+//Score heading
+#score-container span:first-child {
+  color: $score-text;
+  font-size: 0.7em;
+  letter-spacing: 1.2px;
+  margin-bottom: -4px;
+  margin-top: 4px;
+}
+
+#score {
+  font-size: 2.5em;
+  color: $dark-text;
+  font-weight: 700;
+}

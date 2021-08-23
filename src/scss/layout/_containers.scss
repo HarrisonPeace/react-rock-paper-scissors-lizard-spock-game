@@ -3,3 +3,44 @@
 /* ============================================= */
 /*              Containers                       */
 /* ============================================= */
+
+main {
+  width: 100vw;
+  height: 100vh;
+  padding: 25px;
+  background: map-get($gradient, "background");
+}
+
+#header {
+  border: solid $header-outline;
+  height: 110px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#game-name {
+  display: flex;
+    flex-direction: column;
+    font-size: 0.8em;
+    margin-left: 25px;
+    span:not(:last-child) {
+      margin-bottom: -3px;
+    }
+    span:last-child {
+      margin-bottom: 3px;
+    }
+}
+
+#score-container {
+  margin: 12.5px;
+  width: 25%;
+  background-color: white;
+  height: calc(100% - 25px);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

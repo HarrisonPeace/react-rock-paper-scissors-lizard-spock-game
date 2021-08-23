@@ -6,6 +6,7 @@
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap");
 html {
   line-height: 1.15;
   /* 1 */
@@ -350,454 +351,124 @@ template {
           box-sizing: border-box;
 }
 
-fieldset {
-  text-decoration: none;
-  border: none;
-}
-
 /* ============================================= */
 /*              Typography                       */
 /* ============================================= */
-* {
-  font-family: 'Lato', sans-serif;
-  color: #777;
+main {
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-weight: 600;
 }
 
-p {
-  line-height: 1.45em;
+#header {
+  text-transform: uppercase;
 }
 
-a {
-  text-decoration: none;
+#game-name {
+  color: #fff;
 }
 
-.headline-primary {
-  color: #58e1c1;
-  margin-left: 10px;
+#score-container span:first-child {
+  color: #2a46c0;
+  font-size: 0.7em;
+  letter-spacing: 1.2px;
+  margin-bottom: -4px;
+  margin-top: 4px;
 }
 
-.headline-secondary {
-  font-weight: 300;
-  color: #777;
-}
-
-.link {
-  color: #51ddfc;
+#score {
+  font-size: 2.5em;
+  color: #3b4363;
   font-weight: 700;
-}
-
-.blockquote {
-  font-size: 1.5em;
-  font-weight: 300;
-  font-style: italic;
-  margin-left: calc(10px * 2);
-  padding-left: calc(10px * 2);
-  border-left: 8px solid #58e1c1;
-  border-radius: 5px;
 }
 
 /* Scss Document */
 /* ============================================= */
 /*              Grid System                      */
 /* ============================================= */
-.container {
-  padding: 0 10px;
-}
-
-@media (min-width: 768px) {
-  .container {
-    max-width: 1400px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
-.row {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  padding: 1em 10px;
-}
-
-@media (min-width: 768px) {
-  .row {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-  }
-}
-
-[class^=col] {
-  margin-top: 10px;
-  -ms-flex-preferred-size: 100%;
-      flex-basis: 100%;
-  min-height: 25px;
-  padding: 10px;
-  border-radius: 5px;
-}
-
-@media (min-width: 768px) {
-  [class^=col] {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    margin-top: 0;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-  [class^=col] + [class^=col] {
-    margin-left: 10px;
-  }
-}
-
-.card {
-  -ms-flex-preferred-size: 100%;
-      flex-basis: 100%;
-}
-
-.theme.col-1 {
-  background-color: #fd8dd4;
-}
-
-@media (min-width: 768px) {
-  .col-1 {
-    -ms-flex-preferred-size: calc(1 / 12 * 100%);
-        flex-basis: calc(1 / 12 * 100%);
-  }
-}
-
-.theme.col-2 {
-  background-color: #c0fd8d;
-}
-
-@media (min-width: 768px) {
-  .col-2 {
-    -ms-flex-preferred-size: calc(2 / 12 * 100%);
-        flex-basis: calc(2 / 12 * 100%);
-  }
-}
-
-.theme.col-3 {
-  background-color: #8dabfd;
-}
-
-@media (min-width: 768px) {
-  .col-3 {
-    -ms-flex-preferred-size: calc(3 / 12 * 100%);
-        flex-basis: calc(3 / 12 * 100%);
-  }
-}
-
-.theme.col-4 {
-  background-color: #fd8d97;
-}
-
-@media (min-width: 768px) {
-  .col-4 {
-    -ms-flex-preferred-size: calc(4 / 12 * 100%);
-        flex-basis: calc(4 / 12 * 100%);
-  }
-}
-
-.theme.col-5 {
-  background-color: #8dfd98;
-}
-
-@media (min-width: 768px) {
-  .col-5 {
-    -ms-flex-preferred-size: calc(5 / 12 * 100%);
-        flex-basis: calc(5 / 12 * 100%);
-  }
-}
-
-.theme.col-6 {
-  background-color: #ad8dfd;
-}
-
-@media (min-width: 768px) {
-  .col-6 {
-    -ms-flex-preferred-size: calc(6 / 12 * 100%);
-        flex-basis: calc(6 / 12 * 100%);
-  }
-}
-
-.theme.col-7 {
-  background-color: #fdc18d;
-}
-
-@media (min-width: 768px) {
-  .col-7 {
-    -ms-flex-preferred-size: calc(7 / 12 * 100%);
-        flex-basis: calc(7 / 12 * 100%);
-  }
-}
-
-.theme.col-8 {
-  background-color: #8dfdd6;
-}
-
-@media (min-width: 768px) {
-  .col-8 {
-    -ms-flex-preferred-size: calc(8 / 12 * 100%);
-        flex-basis: calc(8 / 12 * 100%);
-  }
-}
-
-.theme.col-9 {
-  background-color: #ea8dfd;
-}
-
-@media (min-width: 768px) {
-  .col-9 {
-    -ms-flex-preferred-size: calc(9 / 12 * 100%);
-        flex-basis: calc(9 / 12 * 100%);
-  }
-}
-
-.theme.col-10 {
-  background-color: #fbfd8d;
-}
-
-@media (min-width: 768px) {
-  .col-10 {
-    -ms-flex-preferred-size: calc(10 / 12 * 100%);
-        flex-basis: calc(10 / 12 * 100%);
-  }
-}
-
-.theme.col-11 {
-  background-color: #8de7fd;
-}
-
-@media (min-width: 768px) {
-  .col-11 {
-    -ms-flex-preferred-size: calc(11 / 12 * 100%);
-        flex-basis: calc(11 / 12 * 100%);
-  }
-}
-
-.theme.col-12 {
-  background-color: #fd8dd2;
-}
-
-@media (min-width: 768px) {
-  .col-12 {
-    -ms-flex-preferred-size: calc(12 / 12 * 100%);
-        flex-basis: calc(12 / 12 * 100%);
-  }
-}
-
-@media (min-width: 768px) {
-  .centered {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
 /* Scss Document */
 /* ============================================= */
 /*              Navigation                       */
 /* ============================================= */
-.nav {
-  padding-left: 0;
-  -ms-flex-preferred-size: 100%;
-      flex-basis: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-.nav-link {
-  text-align: center;
-  border-radius: 5px;
-  padding: 10px 0;
-  display: block;
-  width: 100%;
-  -webkit-transition: background-color .2s ease-in-out,  color .2s ease-in-out;
-  transition: background-color .2s ease-in-out,  color .2s ease-in-out;
-}
-
-.nav-link:hover {
-  color: #fff;
-  background-color: #58e1c1;
-}
-
-@media (min-width: 768px) {
-  .nav {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-box-pack: end;
-        -ms-flex-pack: end;
-            justify-content: flex-end;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-  .nav-link {
-    -ms-flex-preferred-size: 100px;
-        flex-basis: 100px;
-  }
-}
-
 /* Scss Document */
 /* ============================================= */
 /*              Buttons                          */
 /* ============================================= */
-.btn {
-  margin-top: calc(10px * 1.5);
-  width: 100%;
-  color: #fff;
-  border: none;
-  padding: 10px 0;
-  text-transform: uppercase;
-  border-radius: 5px;
-}
-
-@media (min-width: 768px) {
-  .btn {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-  }
-  .btn + .btn {
-    margin-left: 10px;
-  }
-}
-
-.default {
-  background-color: #51ddfc;
-  -webkit-transition: background-color .8s;
-  transition: background-color .8s;
-}
-
-.default:hover {
-  background-color: #9cecfd;
-}
-
-.error {
-  background-color: #e4757a;
-  -webkit-transition: background-color .8s;
-  transition: background-color .8s;
-}
-
-.error:hover {
-  background-color: #f1b5b8;
-}
-
-.warning {
-  background-color: #fd7856;
-  -webkit-transition: background-color .8s;
-  transition: background-color .8s;
-}
-
-.warning:hover {
-  background-color: #feb4a2;
-}
-
-.success {
-  background-color: #63cc82;
-  -webkit-transition: background-color .8s;
-  transition: background-color .8s;
-}
-
-.success:hover {
-  background-color: #9ddfb0;
-}
-
-.info {
-  background-color: #927bc1;
-  -webkit-transition: background-color .8s;
-  transition: background-color .8s;
-}
-
-.info:hover {
-  background-color: #bdafd9;
-}
-
 /* Scss Document */
 /* ============================================= */
 /*              Forms                            */
 /* ============================================= */
-.form {
-  -ms-flex-preferred-size: 100%;
-      flex-basis: 100%;
-}
-
-.input {
-  display: block;
-  width: 94%;
-  margin: 10px auto 0;
-  border: none;
-  padding: 10px;
-  border-bottom: 5px solid #58e1c1;
-}
-
-.hidden {
-  position: absolute;
-  left: -10000px;
-  top: auto;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-}
-
 /* Scss Document */
 /* ============================================= */
 /*              Images                           */
 /* ============================================= */
-.img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.img-avatar {
-  margin-top: 10px;
-  max-width: 100%;
-  max-height: 100%;
-}
-
-.img-frame {
-  margin-top: 10px;
-  max-width: 100%;
-  padding: calc(10px * 1.3);
-  border: 1px solid #ccc;
-}
-
-@media (min-width: 768px) {
-  .img-logo {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    margin-left: initial;
-    margin-right: initial;
-  }
-}
-
 /* Scss Document */
 /* Scss Document */
 /* ============================================= */
 /*              Containers                       */
 /* ============================================= */
+main {
+  width: 100vw;
+  height: 100vh;
+  padding: 25px;
+  background: radial-gradient(circle, #1f3756 0%, #141539 100%);
+}
+
+#header {
+  border: solid #606e85;
+  height: 110px;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#game-name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-size: 0.8em;
+  margin-left: 25px;
+}
+
+#game-name span:not(:last-child) {
+  margin-bottom: -3px;
+}
+
+#game-name span:last-child {
+  margin-bottom: 3px;
+}
+
+#score-container {
+  margin: 12.5px;
+  width: 25%;
+  background-color: white;
+  height: calc(100% - 25px);
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 /* Scss Document */
 /* ============================================= */
 /*                     Footer                    */
