@@ -1,11 +1,13 @@
-import React from 'react'
+import React from "react";
 
-const GameButton = () => {
-    return (
-      <div>
- 
-      </div>
-    );
+import svgIMGs from "../img/svg-imgs";
+
+const GameButton = ({ img }) => {
+  return (
+    <div className={`border border-${img}`}>
+      <div className="game-button">{svgIMGs[img]}</div>
+    </div>
+  );
 };
 
 export default GameButton;

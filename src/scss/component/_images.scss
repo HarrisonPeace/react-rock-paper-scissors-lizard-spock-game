@@ -3,3 +3,52 @@
 /* ============================================= */
 /*              Images                           */
 /* ============================================= */
+
+@each$name, $gradient in $gradients {
+  @if $name != "background" {
+    .border-#{$name} {
+      padding: 1rem;
+      position: fixed;
+      background: $gradient;
+      padding: 3px;
+    }
+  }
+}
+
+.border-scissors {
+  top: calc(50% - 112px);
+  left: calc(50% + -2px);
+  transform: translate(-50%, -50%);
+}
+
+.border-paper {
+  top: calc(50% - 23px);
+  left: calc(50% + 114px);
+  transform: translate(-50%, -50%);
+}
+
+.border-rock {
+  top: calc(50% + 112px);
+  left: calc(50% + 68px);
+  transform: translate(-50%, -50%);
+}
+
+.border-lizard {
+  top: calc(50% + 112px);
+  left: calc(50% - 73px);
+  transform: translate(-50%, -50%);
+}
+
+.border-spock {
+  top: calc(50% - 21px);
+  left: calc(50% - 118px);
+  transform: translate(-50%, -50%);
+}
+
+.scale-pentagon {
+  transform: scale(0.75);
+}
+
+.scale-button-img {
+  transform: scale(0.72);
+}

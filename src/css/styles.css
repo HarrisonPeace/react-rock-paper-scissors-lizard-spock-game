@@ -393,6 +393,21 @@ main {
 /* ============================================= */
 /*              Buttons                          */
 /* ============================================= */
+button {
+  bottom: 54px;
+  left: calc(50%);
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  background: none;
+  position: fixed;
+  border: #ffffff94 solid 2px;
+  border-radius: 10px;
+  padding: 10px 44px;
+  font-size: 1.1em;
+  color: white;
+  letter-spacing: 2px;
+}
+
 /* Scss Document */
 /* ============================================= */
 /*              Forms                            */
@@ -401,6 +416,91 @@ main {
 /* ============================================= */
 /*              Images                           */
 /* ============================================= */
+.border-scissors {
+  padding: 1rem;
+  position: fixed;
+  background: -webkit-gradient(linear, left top, right top, from(#ec9e0e), to(#eca922));
+  background: linear-gradient(90deg, #ec9e0e 0%, #eca922 100%);
+  padding: 3px;
+}
+
+.border-paper {
+  padding: 1rem;
+  position: fixed;
+  background: -webkit-gradient(linear, left top, right top, from(#4865f4), to(#5671f5));
+  background: linear-gradient(90deg, #4865f4 0%, #5671f5 100%);
+  padding: 3px;
+}
+
+.border-rock {
+  padding: 1rem;
+  position: fixed;
+  background: -webkit-gradient(linear, left top, right top, from(#dc2e4e), to(#dd405d));
+  background: linear-gradient(90deg, #dc2e4e 0%, #dd405d 100%);
+  padding: 3px;
+}
+
+.border-lizard {
+  padding: 1rem;
+  position: fixed;
+  background: -webkit-gradient(linear, left top, right top, from(#834fe3), to(#8c5de5));
+  background: linear-gradient(90deg, #834fe3 0%, #8c5de5 100%);
+  padding: 3px;
+}
+
+.border-spock {
+  padding: 1rem;
+  position: fixed;
+  background: -webkit-gradient(linear, left top, right top, from(#40b9ce), to(#52bed1));
+  background: linear-gradient(90deg, #40b9ce 0%, #52bed1 100%);
+  padding: 3px;
+}
+
+.border-scissors {
+  top: calc(50% - 112px);
+  left: calc(50% + -2px);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.border-paper {
+  top: calc(50% - 23px);
+  left: calc(50% + 114px);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.border-rock {
+  top: calc(50% + 112px);
+  left: calc(50% + 68px);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.border-lizard {
+  top: calc(50% + 112px);
+  left: calc(50% - 73px);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.border-spock {
+  top: calc(50% - 21px);
+  left: calc(50% - 118px);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.scale-pentagon {
+  -webkit-transform: scale(0.75);
+          transform: scale(0.75);
+}
+
+.scale-button-img {
+  -webkit-transform: scale(0.72);
+          transform: scale(0.72);
+}
+
 /* Scss Document */
 /* Scss Document */
 /* ============================================= */
@@ -467,6 +567,61 @@ main {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.border {
+  width: 103px;
+  height: 103px;
+  border-radius: 50%;
+  -webkit-box-shadow: 0px 7px 0px -2px #000000;
+          box-shadow: 0px 7px 0px -2px #000000;
+  padding: 12px;
+}
+
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.game-button {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.rules {
+  display: none;
+  z-index: 100;
+  background: white;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.rules svg:last-child {
+  position: fixed;
+  bottom: 60px;
+  left: calc(50% - 20px);
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  margin: 20px;
 }
 
 /* Scss Document */

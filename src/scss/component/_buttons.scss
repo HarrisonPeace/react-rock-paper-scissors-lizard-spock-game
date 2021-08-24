@@ -3,3 +3,17 @@
 /* ============================================= */
 /*              Buttons                          */
 /* ============================================= */
+
+button {
+  bottom: 54px;
+  left: calc(50%);
+  transform: translate(-50%, 0);
+  background: none;
+  position: fixed;
+  border: #ffffff94 solid 2px;
+  border-radius: 10px;
+  padding: 10px 44px;
+  font-size: 1.1em;
+  color: white;
+  letter-spacing: 2px;
+}
