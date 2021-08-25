@@ -16,4 +16,10 @@ button {
   font-size: 1.1em;
   color: white;
   letter-spacing: 2px;
+  @include mq("tablet") {
+    transform: none;
+    left: auto;
+    right: 35px;
+    bottom: 25px;
+  }
 }

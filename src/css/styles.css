@@ -408,6 +408,16 @@ button {
   letter-spacing: 2px;
 }
 
+@media (min-width: 768px) {
+  button {
+    -webkit-transform: none;
+            transform: none;
+    left: auto;
+    right: 35px;
+    bottom: 25px;
+  }
+}
+
 /* Scss Document */
 /* ============================================= */
 /*              Forms                            */
@@ -506,11 +516,16 @@ button {
 /* ============================================= */
 /*              Containers                       */
 /* ============================================= */
+body {
+  background: radial-gradient(circle, #1f3756 0%, #141539 100%);
+}
+
 main {
   width: 100vw;
   height: 100vh;
   padding: 25px;
-  background: radial-gradient(circle, #1f3756 0%, #141539 100%);
+  max-width: 600px;
+  margin: auto;
 }
 
 #header {
@@ -548,6 +563,12 @@ main {
   margin-bottom: 3px;
 }
 
+@media (min-width: 768px) {
+  #game-name {
+    font-size: 1em;
+  }
+}
+
 #score-container {
   margin: 12.5px;
   width: 25%;
@@ -567,6 +588,12 @@ main {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+@media (min-width: 768px) {
+  #score-container {
+    width: 20%;
+  }
 }
 
 .border {
@@ -615,13 +642,66 @@ main {
           transform: translate(-50%, -50%);
 }
 
-.rules svg:last-child {
+.rules #close {
   position: fixed;
   bottom: 60px;
   left: calc(50% - 20px);
   -webkit-transform: translate(-50%, 0);
           transform: translate(-50%, 0);
   margin: 20px;
+}
+
+.rules span {
+  color: #3b4363;
+  font-size: 1.7em;
+  position: fixed;
+  top: 80px;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  font-weight: 900;
+}
+
+@media (min-width: 768px) {
+  .rules {
+    background: #0000007d;
+  }
+  .rules div {
+    background: white;
+    width: 384px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    padding: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    border-radius: 10px;
+  }
+  .rules span,
+  .rules svg,
+  .rules #close {
+    position: initial;
+    top: auto;
+    left: auto;
+    -webkit-transform: none;
+            transform: none;
+  }
+  .rules svg:last-child {
+    -webkit-transform: scale(0.85);
+            transform: scale(0.85);
+    margin: auto;
+  }
 }
 
 /* Scss Document */
