@@ -627,6 +627,15 @@ main {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-transition: -webkit-box-shadow 0.3s cubic-bezier(0, 1.07, 0.11, 1.5);
+  transition: -webkit-box-shadow 0.3s cubic-bezier(0, 1.07, 0.11, 1.5);
+  transition: box-shadow 0.3s cubic-bezier(0, 1.07, 0.11, 1.5);
+  transition: box-shadow 0.3s cubic-bezier(0, 1.07, 0.11, 1.5), -webkit-box-shadow 0.3s cubic-bezier(0, 1.07, 0.11, 1.5);
+}
+
+.game-button:hover {
+  -webkit-box-shadow: 0px 0px 1px 30px #ffffff1a, 0px 0px 1px 55px #ffffff1a, 0px 0px 1px 90px #ffffff1a;
+          box-shadow: 0px 0px 1px 30px #ffffff1a, 0px 0px 1px 55px #ffffff1a, 0px 0px 1px 90px #ffffff1a;
 }
 
 .rules {
