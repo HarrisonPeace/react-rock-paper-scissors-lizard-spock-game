@@ -385,7 +385,7 @@ main {
   position: fixed;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  top: calc(50% + 77px);
+  top: calc(50% + 27px);
   left: calc(50% + 90px);
   width: 155px;
   letter-spacing: 2px;
@@ -396,7 +396,7 @@ main {
   position: fixed;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  top: calc(50% + 77px);
+  top: calc(50% + 27px);
   left: calc(50% - 90px);
   width: 96px;
   letter-spacing: 2px;
@@ -434,6 +434,38 @@ main {
     right: 35px;
     bottom: 25px;
   }
+}
+
+.play-again {
+  display: none;
+  bottom: 148px;
+  left: calc(50%);
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  background: white;
+  position: fixed;
+  border: #ffffff94 solid 2px;
+  border-radius: 10px;
+  padding: 10px 44px;
+  font-size: 1.1em;
+  color: #3b4363;
+  letter-spacing: 2px;
+  width: 200px;
+}
+
+.win-or-lose {
+  display: none;
+  bottom: 213px;
+  left: calc(50%);
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  position: fixed;
+  width: 205px;
+  height: 50px;
+  font-size: 3em;
+  text-align: center;
+  font-weight: 900;
+  letter-spacing: 2px;
 }
 
 .game-button {
@@ -542,12 +574,12 @@ main {
 }
 
 .game-button-chosen {
-  top: calc(50%);
+  top: calc(50% - 50px);
   left: calc(50% - 90px);
 }
 
 .game-button-computer {
-  top: calc(50%);
+  top: calc(50% - 50px);
   left: calc(50% + 90px);
   display: none;
 }
@@ -741,6 +773,19 @@ main {
             transform: scale(0.85);
     margin: auto;
   }
+}
+
+#overlay {
+  bottom: calc(50% + 50px);
+  left: 0;
+  -webkit-transform: translate(0, 50%);
+          transform: translate(0, 50%);
+  position: fixed;
+  border-radius: 10px;
+  width: 100%;
+  height: 200px;
+  z-index: 100;
+  display: none;
 }
 
 /* Scss Document */

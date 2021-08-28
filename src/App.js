@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 //component imports
@@ -10,14 +10,16 @@ import ErrorBoundary from "./components/error/ErrorBoundary";
 
 function App() {
 
+  const [score, setScore] = useState(0);
+
   return (
     <Router>
     <ErrorBoundary>
     <Layout>
-      <Header />
+      <Header score={score}/>
         <Switch>
           <Route exact path="/">
-            <GameBoard />
+            <GameBoard setScore={setScore} score={score}/>
           </Route>
           <Route>
             <NotFound />

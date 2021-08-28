@@ -24,6 +24,36 @@
   }
 }
 
+.play-again {
+  display: none;
+  bottom: 148px;
+  left: calc(50%);
+  transform: translate(-50%, 0);
+  background: white;
+  position: fixed;
+  border: #ffffff94 solid 2px;
+  border-radius: 10px;
+  padding: 10px 44px;
+  font-size: 1.1em;
+  color: $dark-text;
+  letter-spacing: 2px;
+  width: 200px;
+}
+
+.win-or-lose {
+  display: none;
+  bottom: 213px;
+  left: calc(50%);
+  transform: translate(-50%, 0);
+  position: fixed;
+  width: 205px;
+  height: 50px;
+  font-size: 3em;
+  text-align: center;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
 .game-button {
   width: 75px;
   height: 75px;
@@ -54,8 +84,8 @@
       z-index: 0;
       box-shadow: 0px 0px 1px 30px #ffffff1a, 0px 0px 1px 55px #ffffff1a, 0px 0px 1px 90px #ffffff1a;
       svg {
-        transition: transform 0.5s cubic-bezier(1,-1.44,.39,1.69);
-        transform: rotate(10deg)  scale(0.72);
+        transition: transform 0.5s cubic-bezier(1, -1.44, 0.39, 1.69);
+        transform: rotate(10deg) scale(0.72);
       }
     }
   }
@@ -95,12 +125,12 @@
 }
 
 .game-button-chosen {
-  top: calc(50%);
+  top: calc(50% - 50px);
   left: calc(50% - 90px);
 }
 
 .game-button-computer {
-  top: calc(50%);
+  top: calc(50% - 50px);
   left: calc(50% + 90px);
   display: none;
 }
