@@ -7,25 +7,28 @@ import Header from "./components/Header";
 import GameBoard from "./components/GameBoard";
 import NotFound from "./components/error/NotFound";
 import ErrorBoundary from "./components/error/ErrorBoundary";
+import Error from "./components/error/Error";
 
 function App() {
-
   const [score, setScore] = useState(0);
 
   return (
     <Router>
-    <ErrorBoundary>
-    <Layout>
-      <Header score={score}/>
-        <Switch>
-          <Route exact path="/">
-            <GameBoard setScore={setScore} score={score}/>
-          </Route>
-          <Route>
-            <NotFound />
-          </Route>
-        </Switch>
-      </Layout>
+      <ErrorBoundary>
+        <Layout>
+          <Header score={score} />
+          <Switch>
+            <Route exact path="/">
+              <GameBoard setScore={setScore} score={score} />
+            </Route>
+            <Route path="/error">
+              <Error />
+            </Route>
+            <Route>
+              <NotFound />
+            </Route>
+          </Switch>
+        </Layout>
       </ErrorBoundary>
     </Router>
   );

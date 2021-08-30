@@ -14,7 +14,7 @@ const GameButton = ({ img, handleClick, otherButton = false }) => {
       }
     >
       <div className={`game-button-border game-button-color-${img}`}>
-        <div className="game-button">{svgIMGs[img]}</div>
+        <div className="game-button-inner">{svgIMGs[img]}</div>
       </div>
     </div>
   );

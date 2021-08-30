@@ -351,19 +351,26 @@ template {
           box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+}
+
 /* ============================================= */
 /*              Typography                       */
 /* ============================================= */
 main {
-  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-family: "Barlow Semi Condensed", sans-serif;
   font-weight: 600;
 }
 
-#header, span {
+#header,
+span {
   text-transform: uppercase;
 }
 
-#game-name, span {
+#game-name,
+span,
+main {
   color: #fff;
 }
 
@@ -381,7 +388,7 @@ main {
   font-weight: 700;
 }
 
-.house {
+#computer-text {
   position: fixed;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
@@ -392,74 +399,24 @@ main {
   display: none;
 }
 
-.player {
+#player-text {
   position: fixed;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   top: calc(50% + 27px);
-  left: calc(50% - 90px);
+  left: calc(50% + -90px);
   width: 96px;
   letter-spacing: 2px;
   display: none;
 }
 
-/* Scss Document */
-/* ============================================= */
-/*              Navigation                       */
-/* ============================================= */
-/* Scss Document */
-/* ============================================= */
-/*              Buttons                          */
-/* ============================================= */
-.rule-button {
-  bottom: 54px;
-  left: calc(50%);
-  -webkit-transform: translate(-50%, 0);
-          transform: translate(-50%, 0);
-  background: none;
+#win-or-lose-text {
   position: fixed;
-  border: #ffffff94 solid 2px;
-  border-radius: 10px;
-  padding: 10px 44px;
-  font-size: 1.1em;
-  color: white;
-  letter-spacing: 2px;
-}
-
-@media (min-width: 768px) {
-  .rule-button {
-    -webkit-transform: none;
-            transform: none;
-    left: auto;
-    right: 35px;
-    bottom: 25px;
-  }
-}
-
-.play-again {
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  top: calc(50% + 90px);
+  left: calc(50% + 0px);
   display: none;
-  bottom: 148px;
-  left: calc(50%);
-  -webkit-transform: translate(-50%, 0);
-          transform: translate(-50%, 0);
-  background: white;
-  position: fixed;
-  border: #ffffff94 solid 2px;
-  border-radius: 10px;
-  padding: 10px 44px;
-  font-size: 1.1em;
-  color: #3b4363;
-  letter-spacing: 2px;
-  width: 200px;
-}
-
-.win-or-lose {
-  display: none;
-  bottom: 213px;
-  left: calc(50%);
-  -webkit-transform: translate(-50%, 0);
-          transform: translate(-50%, 0);
-  position: fixed;
   width: 205px;
   height: 50px;
   font-size: 3em;
@@ -468,7 +425,68 @@ main {
   letter-spacing: 2px;
 }
 
-.game-button {
+/* Scss Document */
+/* ============================================= */
+/*              Buttons                          */
+/* ============================================= */
+.button {
+  background: none;
+  border: #ffffff94 solid 2px;
+  border-radius: 10px;
+  padding: 10px 44px;
+  font-size: 1.1em;
+  color: white;
+  letter-spacing: 2px;
+  display: inline-block;
+}
+
+#rule-button {
+  background: none;
+  border: #ffffff94 solid 2px;
+  border-radius: 10px;
+  padding: 10px 44px;
+  font-size: 1.1em;
+  color: white;
+  letter-spacing: 2px;
+  display: inline-block;
+  position: fixed;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  top: calc(50% + 265px);
+  left: calc(50% + 0px);
+}
+
+@media (min-width: 768px) {
+  #rule-button {
+    -webkit-transform: none;
+            transform: none;
+    left: auto;
+    right: 35px;
+    bottom: 25px;
+    height: 48px;
+    width: 161px;
+  }
+}
+
+#play-again {
+  background: white;
+  border: #ffffff94 solid 2px;
+  border-radius: 10px;
+  padding: 10px 44px;
+  font-size: 1.1em;
+  color: #3b4363;
+  letter-spacing: 2px;
+  display: inline-block;
+  position: fixed;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  top: calc(50% + 165px);
+  left: calc(50% + 0px);
+  display: none;
+  width: 200px;
+}
+
+.game-button-inner {
   width: 75px;
   height: 75px;
   border-radius: 50%;
@@ -500,9 +518,6 @@ main {
   transition: -webkit-box-shadow 0.3s cubic-bezier(0, 1.07, 0.11, 1.5);
   transition: box-shadow 0.3s cubic-bezier(0, 1.07, 0.11, 1.5);
   transition: box-shadow 0.3s cubic-bezier(0, 1.07, 0.11, 1.5), -webkit-box-shadow 0.3s cubic-bezier(0, 1.07, 0.11, 1.5);
-  position: fixed;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
   border-radius: 50%;
   z-index: 10;
 }
@@ -549,37 +564,58 @@ main {
 }
 
 .container-scissors {
-  top: calc(50% - 112px);
+  position: fixed;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  top: calc(50% + -112px);
   left: calc(50% + -2px);
 }
 
 .container-paper {
-  top: calc(50% - 23px);
+  position: fixed;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  top: calc(50% + -23px);
   left: calc(50% + 114px);
 }
 
 .container-rock {
+  position: fixed;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   top: calc(50% + 112px);
   left: calc(50% + 68px);
 }
 
 .container-lizard {
+  position: fixed;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   top: calc(50% + 112px);
-  left: calc(50% - 73px);
+  left: calc(50% + -73px);
 }
 
 .container-spock {
-  top: calc(50% - 21px);
-  left: calc(50% - 118px);
+  position: fixed;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  top: calc(50% + -21px);
+  left: calc(50% + -118px);
 }
 
 .game-button-chosen {
-  top: calc(50% - 50px);
-  left: calc(50% - 90px);
+  position: fixed;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  top: calc(50% + -50px);
+  left: calc(50% + -90px);
 }
 
 .game-button-computer {
-  top: calc(50% - 50px);
+  position: fixed;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  top: calc(50% + -50px);
   left: calc(50% + 90px);
   display: none;
 }
@@ -601,7 +637,7 @@ main {
 /* Scss Document */
 /* Scss Document */
 /* ============================================= */
-/*              Containers                       */
+/*                   Main                        */
 /* ============================================= */
 body {
   background: radial-gradient(circle, #1f3756 0%, #141539 100%);
@@ -615,6 +651,31 @@ main {
   margin: auto;
 }
 
+.centered {
+  position: fixed;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  top: calc(50% + 0px);
+  left: calc(50% + 0px);
+}
+
+#overlay {
+  position: fixed;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  top: calc(50% + -40px);
+  left: calc(50% + 0px);
+  border-radius: 10px;
+  width: 100%;
+  height: 200px;
+  z-index: 100;
+  display: none;
+}
+
+/* Scss Document */
+/* ============================================= */
+/*                  Header                       */
+/* ============================================= */
 #header {
   border: solid #606e85;
   height: 110px;
@@ -683,24 +744,11 @@ main {
   }
 }
 
-.border {
-  width: 103px;
-  height: 103px;
-  border-radius: 50%;
-  -webkit-box-shadow: 0px 7px 0px -2px #000000;
-          box-shadow: 0px 7px 0px -2px #000000;
-  padding: 12px;
-}
-
-.centered {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-}
-
-.rules {
+/* Scss Document */
+/* ============================================= */
+/*                   Rules                       */
+/* ============================================= */
+#rules {
   display: none;
   z-index: 100;
   background: white;
@@ -713,16 +761,7 @@ main {
           transform: translate(-50%, -50%);
 }
 
-.rules #close {
-  position: fixed;
-  bottom: 60px;
-  left: calc(50% - 20px);
-  -webkit-transform: translate(-50%, 0);
-          transform: translate(-50%, 0);
-  margin: 20px;
-}
-
-.rules span {
+#rules span {
   color: #3b4363;
   font-size: 1.7em;
   position: fixed;
@@ -734,10 +773,10 @@ main {
 }
 
 @media (min-width: 768px) {
-  .rules {
+  #rules {
     background: #0000007d;
   }
-  .rules div {
+  #rules div {
     background: white;
     width: 384px;
     position: relative;
@@ -759,41 +798,37 @@ main {
             align-items: center;
     border-radius: 10px;
   }
-  .rules span,
-  .rules svg,
-  .rules #close {
+  #rules span,
+  #rules svg {
     position: initial;
     top: auto;
     left: auto;
     -webkit-transform: none;
             transform: none;
   }
-  .rules svg:last-child {
+  #rules svg:last-child {
     -webkit-transform: scale(0.85);
             transform: scale(0.85);
     margin: auto;
   }
 }
 
-#overlay {
-  bottom: calc(50% + 50px);
-  left: 0;
-  -webkit-transform: translate(0, 50%);
-          transform: translate(0, 50%);
+#close {
   position: fixed;
-  border-radius: 10px;
-  width: 100%;
-  height: 200px;
-  z-index: 100;
-  display: none;
+  bottom: 60px;
+  left: calc(50% - 20px);
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  margin: 20px;
 }
 
-/* Scss Document */
-/* ============================================= */
-/*                     Footer                    */
-/* ============================================= */
-/* Scss Document */
-/* ============================================= */
-/*                 Header                        */
-/* ============================================= */
+@media (min-width: 768px) {
+  #close {
+    position: initial;
+    top: auto;
+    left: auto;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
 /*# sourceMappingURL=styles.css.map */

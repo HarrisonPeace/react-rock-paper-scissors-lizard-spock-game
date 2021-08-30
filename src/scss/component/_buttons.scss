@@ -4,57 +4,31 @@
 /*              Buttons                          */
 /* ============================================= */
 
-.rule-button {
-  bottom: 54px;
-  left: calc(50%);
-  transform: translate(-50%, 0);
-  background: none;
-  position: fixed;
-  border: #ffffff94 solid 2px;
-  border-radius: 10px;
-  padding: 10px 44px;
-  font-size: 1.1em;
-  color: white;
-  letter-spacing: 2px;
+.button {
+  @include button();
+}
+
+#rule-button {
+  @include button();
+  @include fixed5050(265px);
   @include mq("tablet") {
     transform: none;
     left: auto;
     right: 35px;
     bottom: 25px;
+    height: 48px;
+    width: 161px;
   }
 }
 
-.play-again {
+#play-again {
+  @include button(white, $dark-text);
+  @include fixed5050(165px);
   display: none;
-  bottom: 148px;
-  left: calc(50%);
-  transform: translate(-50%, 0);
-  background: white;
-  position: fixed;
-  border: #ffffff94 solid 2px;
-  border-radius: 10px;
-  padding: 10px 44px;
-  font-size: 1.1em;
-  color: $dark-text;
-  letter-spacing: 2px;
   width: 200px;
 }
 
-.win-or-lose {
-  display: none;
-  bottom: 213px;
-  left: calc(50%);
-  transform: translate(-50%, 0);
-  position: fixed;
-  width: 205px;
-  height: 50px;
-  font-size: 3em;
-  text-align: center;
-  font-weight: 900;
-  letter-spacing: 2px;
-}
-
-.game-button {
+.game-button-inner {
   width: 75px;
   height: 75px;
   border-radius: 50%;
@@ -75,8 +49,6 @@
 
 .game-button-container {
   transition: box-shadow 0.3s cubic-bezier(0, 1.07, 0.11, 1.5);
-  position: fixed;
-  transform: translate(-50%, -50%);
   border-radius: 50%;
   z-index: 10;
   @include mq("tablet") {
@@ -100,37 +72,30 @@
 }
 
 .container-scissors {
-  top: calc(50% - 112px);
-  left: calc(50% + -2px);
+  @include fixed5050(-112px, -2px);
 }
 
 .container-paper {
-  top: calc(50% - 23px);
-  left: calc(50% + 114px);
+  @include fixed5050(-23px, 114px);
 }
 
 .container-rock {
-  top: calc(50% + 112px);
-  left: calc(50% + 68px);
+  @include fixed5050(112px, 68px);
 }
 
 .container-lizard {
-  top: calc(50% + 112px);
-  left: calc(50% - 73px);
+  @include fixed5050(112px, -73px);
 }
 
 .container-spock {
-  top: calc(50% - 21px);
-  left: calc(50% - 118px);
+  @include fixed5050(-21px, -118px);
 }
 
 .game-button-chosen {
-  top: calc(50% - 50px);
-  left: calc(50% - 90px);
+  @include fixed5050(-50px, -90px);
 }
 
 .game-button-computer {
-  top: calc(50% - 50px);
-  left: calc(50% + 90px);
+  @include fixed5050(-50px, 90px);
   display: none;
 }

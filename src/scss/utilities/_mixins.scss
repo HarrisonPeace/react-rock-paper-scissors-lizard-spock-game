@@ -4,6 +4,24 @@
 //                    Mixins                     //
 // ============================================= //
 
+@mixin button($background: none, $color: white) {
+	background: $background;
+	border: #ffffff94 solid 2px;
+	border-radius: $border-radius;
+	padding: 10px 44px;
+	font-size: 1.1em;
+	color: $color;
+	letter-spacing: 2px;
+	display: inline-block;
+}
+
+@mixin fixed5050($top: 0px, $left: 0px) {
+	position: fixed;
+	transform: translate(-50%, -50%);
+	top: calc(50% + #{$top});
+	left: calc(50% + #{$left});
+}
+
 @mixin mq($break) {
 	@media (min-width: map-get($breakpoint, $break)) {
 		@content;

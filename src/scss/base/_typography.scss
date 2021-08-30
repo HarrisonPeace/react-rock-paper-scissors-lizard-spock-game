@@ -4,19 +4,22 @@
 /*              Typography                       */
 /* ============================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap");
 
 main {
-  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-family: "Barlow Semi Condensed", sans-serif;
   font-weight: 600;
 }
 
-#header, span {
+#header,
+span {
   text-transform: uppercase;
 }
 
-#game-name, span {
-  color: $light-text
+#game-name,
+span,
+main {
+  color: $light-text;
 }
 
 //Score heading
@@ -28,28 +31,37 @@ main {
   margin-top: 4px;
 }
 
+//Score number
 #score {
   font-size: 2.5em;
   color: $dark-text;
   font-weight: 700;
 }
 
-.house {
-  position: fixed;
-    transform: translate(-50%, -50%);
-    top: calc(50% + 27px);
-    left: calc(50% + 90px);
-    width: 155px;
-    letter-spacing: 2px;
-    display: none;
+//House picked text
+#computer-text {
+  @include fixed5050(27px, 90px);
+  width: 155px;
+  letter-spacing: 2px;
+  display: none;
 }
 
-.player {
-  position: fixed;
-    transform: translate(-50%, -50%);
-    top: calc(50% + 27px);
-    left: calc(50% - 90px);
-    width: 96px;
-    letter-spacing: 2px;
-    display: none;
+//player picked text
+#player-text {
+  @include fixed5050(27px, -90px);
+  width: 96px;
+  letter-spacing: 2px;
+  display: none;
+}
+
+//win / lose text
+#win-or-lose-text {
+  @include fixed5050(90px);
+  display: none;
+  width: 205px;
+  height: 50px;
+  font-size: 3em;
+  text-align: center;
+  font-weight: 900;
+  letter-spacing: 2px;
 }
