@@ -26,6 +26,11 @@
   @include fixed5050(165px);
   display: none;
   width: 200px;
+  @include mq("tablet") {
+    padding: 10px;
+    top: calc(50% + -24px);
+    width: 170px;
+  }
 }
 
 .game-button-inner {

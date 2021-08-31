@@ -44,6 +44,10 @@ main {
   width: 155px;
   letter-spacing: 2px;
   display: none;
+  @include mq("tablet") {
+    top: calc(50% + -170px);
+    left: calc(50% + 110px);
+  }
 }
 
 //player picked text
@@ -52,6 +56,10 @@ main {
   width: 96px;
   letter-spacing: 2px;
   display: none;
+  @include mq("tablet") {
+    top: calc(50% + -170px);
+    left: calc(50% + -110px);
+  }
 }
 
 //win / lose text
@@ -64,4 +72,7 @@ main {
   text-align: center;
   font-weight: 900;
   letter-spacing: 2px;
+  @include mq("tablet") {
+    top: calc(50% + -83px);
+  }
 }

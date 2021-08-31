@@ -76,13 +76,70 @@ const GameBoard = ({ setScore, score }) => {
   };
 
   /**
+   * @description Updates some elements of the game board on window size {only when game has been played}
+   **/
+  window.addEventListener("resize", () => {
+    //only run if computerChoice is not null (the game has been played)
+    if (computerChoice !== null) {
+      let playerButtonContainer =
+        gameButtonContainer.current.querySelector(`.game-button-chosen`);
+      //only run if playerButtonContainer is not null (the game has been played a game button has been clicked)
+      if (playerButtonContainer !== null) {
+        //at tablet break point
+        if (window.innerWidth > 768) {
+          //move all visible elements wider apart
+          playerButtonContainer.style.left = "calc(50% + -180px)";
+          player.current.style.left = "calc(50% + -180px)";
+          computer.current.style.left = "calc(50% + 180px)";
+          computerButtonContainer.current.firstElementChild.style.left =
+            "calc(50% + 180px)";
+          //make game button larger
+          playerButtonContainer.firstElementChild.firstElementChild.style.width =
+            "100px";
+          playerButtonContainer.firstElementChild.firstElementChild.style.height =
+            "100px";
+          computerButtonContainer.current.firstElementChild.firstElementChild.firstElementChild.style.width =
+            "100px";
+          computerButtonContainer.current.firstElementChild.firstElementChild.firstElementChild.style.height =
+            "100px";
+          //make game button svg larger
+          playerButtonContainer.querySelector("svg").style.transform =
+            "scale(0.9)";
+          computerButtonContainer.current.querySelector("svg").style.transform =
+            "scale(0.9)";
+          //resize and move overlay so its only above the chosen game button
+          overlay.current.style.left = "0";
+          overlay.current.style.width = "80%";
+        } else {
+          //revert all above changes and remove all inline styles (except for display: block if relevant)
+          playerButtonContainer.removeAttribute("style");
+          playerButtonContainer.firstElementChild.firstElementChild.removeAttribute(
+            "style"
+          );
+          playerButtonContainer.querySelector("svg").removeAttribute("style");
+          computerButtonContainer.current.firstElementChild.setAttribute(
+            "style",
+            "display: block"
+          );
+          computerButtonContainer.current.firstElementChild.firstElementChild.firstElementChild.removeAttribute(
+            "style"
+          );
+          computerButtonContainer.current
+            .querySelector("svg")
+            .removeAttribute("style");
+          player.current.setAttribute("style", "display: block");
+          computer.current.setAttribute("style", "display: block");
+        }
+      }
+    }
+  });
+
+  /**
    * @description Function for when the user (player) clicks and selects a game item
    * @param e = event object
    **/
   const gameButtonClick = (e) => {
-    //create container variable
-    let container;
-
+    let playerButtonContainer;
     //assign main (parent) container element to container variable depending on item clicked
     //if event occurred on SVG, SVG PATH or other element
     if (
@@ -90,14 +147,15 @@ const GameBoard = ({ setScore, score }) => {
       e.target.nodeName === "path" ||
       !e.target.className.includes("container")
     ) {
-      container = e.target.closest(".game-button-container");
+      playerButtonContainer = e.target.closest(".game-button-container");
     } else {
       //if click event happened on container itself
-      container = e.target;
+      playerButtonContainer = e.target;
     }
 
     //change class of clicked container to change its position on the screen
-    container.className = "game-button-container game-button-chosen";
+    playerButtonContainer.className =
+      "game-button-container game-button-chosen";
 
     //Hide center pentagon
     pentagonContainer.current.style.display = "none";
@@ -108,6 +166,26 @@ const GameBoard = ({ setScore, score }) => {
     computer.current.style.display = "block";
     overlay.current.style.display = "block";
 
+    //at tablet break point
+    if (window.innerWidth > 768) {
+      //make game button svg larger
+      playerButtonContainer.firstElementChild.firstElementChild.style.width =
+        "100px";
+      playerButtonContainer.firstElementChild.firstElementChild.style.height =
+        "100px";
+      computerButtonContainer.current.firstElementChild.firstElementChild.firstElementChild.style.width =
+        "100px";
+      computerButtonContainer.current.firstElementChild.firstElementChild.firstElementChild.style.height =
+        "100px";
+      //make game button svg larger
+      playerButtonContainer.querySelector("svg").style.transform = "scale(0.9)";
+      computerButtonContainer.current.querySelector("svg").style.transform =
+        "scale(0.9)";
+      //resize and move overlay so its only above the chosen game button
+      overlay.current.style.left = "0";
+      overlay.current.style.width = "80%";
+    }
+
     //select all game buttons
     let currentButtons = gameButtonContainer.current.querySelectorAll(
       ".game-button-container"
@@ -115,7 +193,7 @@ const GameBoard = ({ setScore, score }) => {
 
     //hide all game buttons that didn't get clicked
     for (let i = 0; i < gameItems.length; i++) {
-      if (currentButtons[i] !== container) {
+      if (currentButtons[i] !== playerButtonContainer) {
         currentButtons[i].style.display = "none";
       }
     }
@@ -143,16 +221,31 @@ const GameBoard = ({ setScore, score }) => {
       let computerPick = Math.floor(Math.random() * gameItems.length);
 
       //convert the players pick to nu,ber format
-      let playerPick = gameItems.indexOf(container.id);
+      let playerPick = gameItems.indexOf(playerButtonContainer.id);
 
       //* --- Number format relating to index number of game item in gameItem array  */
 
       //set computer chose in state to update computer button component
       setComputerChoice(gameItems[computerPick]);
 
+      if (window.innerWidth > 768) {
+        computerButtonContainer.current.querySelector("svg").style.transform =
+          "scale(0.9)";
+      }
+
       //remove flashing button animation
       clearInterval(intOne);
       clearInterval(intTwo);
+
+      //at tablet break point
+      if (window.innerWidth > 768) {
+        //move all visible elements wider apart
+        playerButtonContainer.style.left = "calc(50% + -180px)";
+        player.current.style.left = "calc(50% + -180px)";
+        computer.current.style.left = "calc(50% + 180px)";
+        computerButtonContainer.current.firstElementChild.style.left =
+          "calc(50% + 180px)";
+      }
 
       //show play and again button and win/lose text
       playAgain.current.style.display = "block";
@@ -193,6 +286,8 @@ const GameBoard = ({ setScore, score }) => {
 
     //hide game play elements of computer button, player heading, computer heading, play again button, win/lose text and overlay
     computerButtonContainer.current.firstElementChild.style.display = "none";
+
+    //remove any inline styles elements may have
     player.current.style.display = "none";
     computer.current.style.display = "none";
     playAgain.current.style.display = "none";
@@ -206,7 +301,14 @@ const GameBoard = ({ setScore, score }) => {
 
     //display all game buttons and re-assign them there classes
     for (let i = 0; i < gameItems.length; i++) {
+      //remove any inline styles elements may have
+      currentButtons[i].removeAttribute("style");
+      currentButtons[i].firstElementChild.firstElementChild.removeAttribute(
+        "style"
+      );
+      currentButtons[i].querySelector("svg").removeAttribute("style");
       currentButtons[i].style.display = "block";
+      //revert all game buttons to original class
       currentButtons[
         i
       ].className = `container-${gameItems[i]} game-button-container`;

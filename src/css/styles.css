@@ -399,6 +399,13 @@ main {
   display: none;
 }
 
+@media (min-width: 768px) {
+  #computer-text {
+    top: calc(50% + -170px);
+    left: calc(50% + 110px);
+  }
+}
+
 #player-text {
   position: fixed;
   -webkit-transform: translate(-50%, -50%);
@@ -408,6 +415,13 @@ main {
   width: 96px;
   letter-spacing: 2px;
   display: none;
+}
+
+@media (min-width: 768px) {
+  #player-text {
+    top: calc(50% + -170px);
+    left: calc(50% + -110px);
+  }
 }
 
 #win-or-lose-text {
@@ -423,6 +437,12 @@ main {
   text-align: center;
   font-weight: 900;
   letter-spacing: 2px;
+}
+
+@media (min-width: 768px) {
+  #win-or-lose-text {
+    top: calc(50% + -83px);
+  }
 }
 
 /* Scss Document */
@@ -484,6 +504,14 @@ main {
   left: calc(50% + 0px);
   display: none;
   width: 200px;
+}
+
+@media (min-width: 768px) {
+  #play-again {
+    padding: 10px;
+    top: calc(50% + -24px);
+    width: 170px;
+  }
 }
 
 .game-button-inner {
