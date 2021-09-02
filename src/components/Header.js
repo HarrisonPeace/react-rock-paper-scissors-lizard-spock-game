@@ -12,7 +12,7 @@ const Header = ({ score }) => {
       </div>
       <div id="score-container">
         <span>Score</span>
-        <span id="score">{score}</span>
+        <span id="score">{score || 0}</span>
       </div>
     </div>
   );

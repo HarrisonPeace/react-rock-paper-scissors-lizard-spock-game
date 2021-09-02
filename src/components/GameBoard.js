@@ -107,9 +107,6 @@ const GameBoard = ({ setScore, score }) => {
             "scale(0.9)";
           computerButtonContainer.current.querySelector("svg").style.transform =
             "scale(0.9)";
-          //resize and move overlay so its only above the chosen game button
-          overlay.current.style.left = "0";
-          overlay.current.style.width = "80%";
         } else {
           //revert all above changes and remove all inline styles (except for display: block if relevant)
           playerButtonContainer.removeAttribute("style");
@@ -179,11 +176,6 @@ const GameBoard = ({ setScore, score }) => {
         "100px";
       //make game button svg larger
       playerButtonContainer.querySelector("svg").style.transform = "scale(0.9)";
-      computerButtonContainer.current.querySelector("svg").style.transform =
-        "scale(0.9)";
-      //resize and move overlay so its only above the chosen game button
-      overlay.current.style.left = "0";
-      overlay.current.style.width = "80%";
     }
 
     //select all game buttons
@@ -228,6 +220,7 @@ const GameBoard = ({ setScore, score }) => {
       //set computer chose in state to update computer button component
       setComputerChoice(gameItems[computerPick]);
 
+      //at tablet break point
       if (window.innerWidth > 768) {
         computerButtonContainer.current.querySelector("svg").style.transform =
           "scale(0.9)";
@@ -263,12 +256,12 @@ const GameBoard = ({ setScore, score }) => {
       } else if (checkWin) {
         //if win show you win text and add 1 to score
         winOrLose.current.innerHTML = "YOU WIN";
-        setScore(score + 1);
+        setScore("score", score + 1 || 1, { path: "/" });
       } else {
         //if lose show you lose text and minus 1 to score (if score not already 0)
         winOrLose.current.innerHTML = "YOU LOSE";
         if (score > 0) {
-          setScore(score - 1);
+          setScore("score", score - 1, { path: "/" });
         }
       }
     }, 1000);

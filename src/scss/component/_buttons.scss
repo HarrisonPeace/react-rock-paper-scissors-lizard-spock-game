@@ -57,7 +57,7 @@
   border-radius: 50%;
   z-index: 10;
   @include mq("tablet") {
-    &:hover {
+    &:hover:not(.game-button-computer ) {
       z-index: 0;
       box-shadow: 0px 0px 1px 30px #ffffff1a, 0px 0px 1px 55px #ffffff1a, 0px 0px 1px 90px #ffffff1a;
       svg {

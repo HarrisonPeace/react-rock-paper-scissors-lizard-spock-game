@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { useCookies } from "react-cookie";
 
 //component imports
 import Layout from "./components/Layout";
@@ -10,16 +11,22 @@ import ErrorBoundary from "./components/error/ErrorBoundary";
 import Error from "./components/error/Error";
 
 function App() {
-  const [score, setScore] = useState(0);
+  //create date object for cookie expiry {1 day from now}
+  let cookieExpiry = new Date();
+  cookieExpiry.setDate(cookieExpiry.getDate() + 1);
+
+  //create authenticated user cookie
+  const [cookies, setCookie] = useCookies(["score"]);
+  console.log(cookies.score)
 
   return (
     <Router>
       <ErrorBoundary>
         <Layout>
-          <Header score={score} />
+          <Header score={cookies.score} />
           <Switch>
             <Route exact path="/">
-              <GameBoard setScore={setScore} score={score} />
+              <GameBoard setScore={setCookie} score={parseInt(cookies.score)} />
             </Route>
             <Route path="/error">
               <Error />

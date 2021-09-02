@@ -551,12 +551,12 @@ main {
 }
 
 @media (min-width: 768px) {
-  .game-button-container:hover {
+  .game-button-container:hover:not(.game-button-computer) {
     z-index: 0;
     -webkit-box-shadow: 0px 0px 1px 30px #ffffff1a, 0px 0px 1px 55px #ffffff1a, 0px 0px 1px 90px #ffffff1a;
             box-shadow: 0px 0px 1px 30px #ffffff1a, 0px 0px 1px 55px #ffffff1a, 0px 0px 1px 90px #ffffff1a;
   }
-  .game-button-container:hover svg {
+  .game-button-container:hover:not(.game-button-computer) svg {
     -webkit-transition: -webkit-transform 0.5s cubic-bezier(1, -1.44, 0.39, 1.69);
     transition: -webkit-transform 0.5s cubic-bezier(1, -1.44, 0.39, 1.69);
     transition: transform 0.5s cubic-bezier(1, -1.44, 0.39, 1.69);
@@ -698,6 +698,15 @@ main {
   height: 200px;
   z-index: 100;
   display: none;
+}
+
+@media (min-width: 768px) {
+  #overlay {
+    left: 0;
+    width: calc(50% - 85px);
+    -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+  }
 }
 
 /* Scss Document */

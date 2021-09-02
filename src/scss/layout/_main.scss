@@ -27,4 +27,9 @@ main {
   height: 200px;
   z-index: 100;
   display: none;
+  @include mq('tablet') {
+    left: 0;
+    width: calc(50% - 85px);
+    transform: translate(0, -50%)
+  }
 }
