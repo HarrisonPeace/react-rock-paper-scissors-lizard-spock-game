@@ -76,62 +76,6 @@ const GameBoard = ({ setScore, score }) => {
   };
 
   /**
-   * @description Updates some elements of the game board on window size {only when game has been played}
-   **/
-  window.addEventListener("resize", () => {
-    //only run if computerChoice is not null (the game has been played)
-    if (computerChoice !== null) {
-      let playerButtonContainer =
-        gameButtonContainer.current.querySelector(`.game-button-chosen`);
-      //only run if playerButtonContainer is not null (the game has been played a game button has been clicked)
-      if (playerButtonContainer !== null) {
-        //at tablet break point
-        if (window.innerWidth > 768) {
-          //move all visible elements wider apart
-          playerButtonContainer.style.left = "calc(50% + -180px)";
-          player.current.style.left = "calc(50% + -180px)";
-          computer.current.style.left = "calc(50% + 180px)";
-          computerButtonContainer.current.firstElementChild.style.left =
-            "calc(50% + 180px)";
-          //make game button larger
-          playerButtonContainer.firstElementChild.firstElementChild.style.width =
-            "100px";
-          playerButtonContainer.firstElementChild.firstElementChild.style.height =
-            "100px";
-          computerButtonContainer.current.firstElementChild.firstElementChild.firstElementChild.style.width =
-            "100px";
-          computerButtonContainer.current.firstElementChild.firstElementChild.firstElementChild.style.height =
-            "100px";
-          //make game button svg larger
-          playerButtonContainer.querySelector("svg").style.transform =
-            "scale(0.9)";
-          computerButtonContainer.current.querySelector("svg").style.transform =
-            "scale(0.9)";
-        } else {
-          //revert all above changes and remove all inline styles (except for display: block if relevant)
-          playerButtonContainer.removeAttribute("style");
-          playerButtonContainer.firstElementChild.firstElementChild.removeAttribute(
-            "style"
-          );
-          playerButtonContainer.querySelector("svg").removeAttribute("style");
-          computerButtonContainer.current.firstElementChild.setAttribute(
-            "style",
-            "display: block"
-          );
-          computerButtonContainer.current.firstElementChild.firstElementChild.firstElementChild.removeAttribute(
-            "style"
-          );
-          computerButtonContainer.current
-            .querySelector("svg")
-            .removeAttribute("style");
-          player.current.setAttribute("style", "display: block");
-          computer.current.setAttribute("style", "display: block");
-        }
-      }
-    }
-  });
-
-  /**
    * @description Function for when the user (player) clicks and selects a game item
    * @param e = event object
    **/
@@ -162,21 +106,6 @@ const GameBoard = ({ setScore, score }) => {
     player.current.style.display = "block";
     computer.current.style.display = "block";
     overlay.current.style.display = "block";
-
-    //at tablet break point
-    if (window.innerWidth > 768) {
-      //make game button svg larger
-      playerButtonContainer.firstElementChild.firstElementChild.style.width =
-        "100px";
-      playerButtonContainer.firstElementChild.firstElementChild.style.height =
-        "100px";
-      computerButtonContainer.current.firstElementChild.firstElementChild.firstElementChild.style.width =
-        "100px";
-      computerButtonContainer.current.firstElementChild.firstElementChild.firstElementChild.style.height =
-        "100px";
-      //make game button svg larger
-      playerButtonContainer.querySelector("svg").style.transform = "scale(0.9)";
-    }
 
     //select all game buttons
     let currentButtons = gameButtonContainer.current.querySelectorAll(
@@ -220,25 +149,9 @@ const GameBoard = ({ setScore, score }) => {
       //set computer chose in state to update computer button component
       setComputerChoice(gameItems[computerPick]);
 
-      //at tablet break point
-      if (window.innerWidth > 768) {
-        computerButtonContainer.current.querySelector("svg").style.transform =
-          "scale(0.9)";
-      }
-
       //remove flashing button animation
       clearInterval(intOne);
       clearInterval(intTwo);
-
-      //at tablet break point
-      if (window.innerWidth > 768) {
-        //move all visible elements wider apart
-        playerButtonContainer.style.left = "calc(50% + -180px)";
-        player.current.style.left = "calc(50% + -180px)";
-        computer.current.style.left = "calc(50% + 180px)";
-        computerButtonContainer.current.firstElementChild.style.left =
-          "calc(50% + 180px)";
-      }
 
       //show play and again button and win/lose text
       playAgain.current.style.display = "block";
@@ -294,12 +207,6 @@ const GameBoard = ({ setScore, score }) => {
 
     //display all game buttons and re-assign them there classes
     for (let i = 0; i < gameItems.length; i++) {
-      //remove any inline styles elements may have
-      currentButtons[i].removeAttribute("style");
-      currentButtons[i].firstElementChild.firstElementChild.removeAttribute(
-        "style"
-      );
-      currentButtons[i].querySelector("svg").removeAttribute("style");
       currentButtons[i].style.display = "block";
       //revert all game buttons to original class
       currentButtons[

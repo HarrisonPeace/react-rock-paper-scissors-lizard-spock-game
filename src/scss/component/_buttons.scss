@@ -98,9 +98,28 @@
 
 .game-button-chosen {
   @include fixed5050(-50px, -90px);
+  @include mq('tablet') {
+    left: calc(50% + -180px);
+  };
 }
 
 .game-button-computer {
   @include fixed5050(-50px, 90px);
   display: none;
+  @include mq('tablet') {
+    left: calc(50% + 180px);
+  };
+}
+
+.game-button-computer,
+.game-button-chosen {
+  @include mq('tablet') {
+    .game-button-inner {
+      width: 100px;
+      height: 100px;
+    }
+    svg {
+      transform: scale(0.9);
+    }
+  };
 }

@@ -639,6 +639,12 @@ main {
   left: calc(50% + -90px);
 }
 
+@media (min-width: 768px) {
+  .game-button-chosen {
+    left: calc(50% + -180px);
+  }
+}
+
 .game-button-computer {
   position: fixed;
   -webkit-transform: translate(-50%, -50%);
@@ -646,6 +652,25 @@ main {
   top: calc(50% + -50px);
   left: calc(50% + 90px);
   display: none;
+}
+
+@media (min-width: 768px) {
+  .game-button-computer {
+    left: calc(50% + 180px);
+  }
+}
+
+@media (min-width: 768px) {
+  .game-button-computer .game-button-inner,
+  .game-button-chosen .game-button-inner {
+    width: 100px;
+    height: 100px;
+  }
+  .game-button-computer svg,
+  .game-button-chosen svg {
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+  }
 }
 
 /* Scss Document */
